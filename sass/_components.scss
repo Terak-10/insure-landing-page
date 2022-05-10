@@ -9,8 +9,16 @@
         list-style: none;
         gap: 1.5rem;
         margin-right: 1.5rem;
-    }
 
+        @media (max-width: 50em) {
+            margin-right: 0;
+        }
+
+        @media (max-width: 22.5em) {
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+    }
 
     &_link:link,
     &_link:visited {
@@ -21,18 +29,29 @@
         transition: 0.7s ease;
     }
 
+    &_link:link:hover,
+    &_link:visited:hover {
+        color: #000;
+    }
+
     &_btn {
         padding: 0.45rem 1.5rem;
         border: 1px solid #000;
         background-color: transparent;
         text-transform: uppercase;
+        transition: 1s all;
+
+        @media (max-width: 50em) {
+            margin-bottom: 1rem;
+        }
     }
 
     &_btn:hover {
         cursor: pointer;
+        background-color: #000;
+        color: #fff;
     }
 }
-
 
 /// NAV BAR HAMBURGER
 .hamburger {
@@ -50,7 +69,7 @@
     background-color: #000;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 50em) {
     .hamburger {
         display: block;
     }
@@ -77,6 +96,7 @@
         width: 100%;
         text-align: center;
         transition: 0.3s;
+        z-index: 10;
     }
 
     .nav-bar_li {
@@ -91,12 +111,23 @@
 /// HEADER TOP
 .text-box {
     width: 50%;
+    
+    @media (max-width: 62.5em) {
+       padding-bottom: 3rem;
+       width: 100%;
+       text-align: center;
+    }
+
 
     &_span {
         width: 10rem;
         height: 0.1rem;
         background-color: var(--Dark-Grayish-Violet);
         position: absolute;
+
+        @media (max-width: 62.5em) {
+            display: none;
+         }
     }
 
     &_h-1 {
@@ -106,6 +137,10 @@
         line-height: 0.9;
         color: #fff;
         margin-top: 3rem;
+
+        @media (max-width: 30em) {
+            margin-top: 2rem;
+        }
     }
 
     &_p {
@@ -116,6 +151,7 @@
         width: 97%;
     }
 
+
     &_btn {
         padding: 0.45rem 1.5rem;
         border: 1px solid #fff;
@@ -123,7 +159,17 @@
         text-transform: uppercase;
         color: #fff;
         letter-spacing: 0.1rem;
+        position: relative;
+        z-index: 10;
+        transition: 1s all;
     }
+
+    &_btn:hover {
+        cursor: pointer;
+        background-color: #fff;
+        color: #000;
+    }
+
 }
 
 .top {
@@ -132,6 +178,11 @@
         height: 35rem;
         position: relative;
         z-index: 1;
+
+        @media (max-width: 30em) {
+            width: 100vw;
+            height: 100vw;
+        }
     }
 }
 
@@ -146,6 +197,12 @@
     position: absolute;
     display: inline-block;
     z-index: 1;
+
+    @media (max-width: 62.5em) {
+       background-image: url(/images/bg-pattern-intro-right-mobile.svg);
+       top: -90px;
+       right: -513px;
+     }
 }
 
 .span {
@@ -153,6 +210,10 @@
     height: 0.1rem;
     background-color: var(--Dark-Grayish-Violet);
     position: absolute;
+    
+    @media (max-width: 62.5em) {
+        display: none;
+     }
 }
 
 // MAIN 
@@ -160,13 +221,23 @@
 .main {
     &_h-1 {
         font-size: 3rem;
+
+        @media (max-width: 47.5em) {
+            text-align: center;
+        }
     }
 }
 
 .card {
     flex: 1;
     min-width: 18rem;
+    min-height: 15rem;
+    max-width: 19rem;
     
+    @media (max-width: 21.25em) {
+        min-width: 12rem;
+    }
+
     &_img {
         height: 4rem;
         margin-bottom: 1.5rem;
@@ -181,5 +252,107 @@
         color: var(--Dark-Grayish-Violet);
         line-height: 1.4;
         font-size: 1rem;
+    }
+}
+
+// WORK SECTION
+.work {
+
+    &_h-1 {
+        color: #fff;
+        width: 30rem;
+        font-size: 3.1rem;
+        line-height: 0.9;
+
+        @media (max-width: 59.375em) {
+            width: 50%;
+            font-size: clamp(2rem, 2.7vw, 2.5rem);
+        }
+
+        @media (max-width: 50.625em) {
+            text-align: center;
+            margin-bottom: 2rem;
+            width: 90%;
+        }
+    }
+
+    &_btn {
+        padding: 0.45rem 1.5rem;
+        border: 1px solid #fff;
+        background-color: transparent;
+        text-transform: uppercase;
+        color: #fff;
+        letter-spacing: 0.1rem;
+        transition: 1s all;
+    }
+
+    &_btn:hover {
+        cursor: pointer;
+        background-color: #fff;
+        color: #000;
+    }
+}
+
+// FOOTER
+.footer-top {
+
+    &_icon-box {
+        display: flex;
+        gap: 1rem;
+
+        @media (max-width: 21.875em) {
+            gap: 0.6rem;
+        }
+    }
+
+    &_icon {
+        transition:  0.5s all;
+        @media (max-width: 21.875em) {
+            height: 1rem;
+        }
+    }
+
+    &_icon:hover {
+        filter: brightness(50%);
+        cursor: pointer;
+    }
+}
+
+.footer-bottom {
+
+    margin-top: 3rem;
+    width: 82%;
+
+    @media (max-width: 51.75em) {
+        width: 100%;
+    }
+
+    &_box {
+        margin-bottom: 2rem;
+    }
+
+    &_p {
+        color: var(--Dark-Grayish-Violet);
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+    }
+
+    &_ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    &_link:link,
+    &_link:visited {
+        color: #000;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    &_link:link:hover,
+    &_link:visited:hover {
+        text-decoration: underline;
     }
 }
